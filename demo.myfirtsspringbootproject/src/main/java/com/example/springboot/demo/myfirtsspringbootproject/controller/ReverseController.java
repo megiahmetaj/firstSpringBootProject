@@ -9,8 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ReverseController {
 
+    private final TextUtilsComponent textUtilsComponent;
+
     @Autowired
-    private TextUtilsComponent textUtilsComponent;
+    public ReverseController(TextUtilsComponent textUtilsComponent) {
+        this.textUtilsComponent = textUtilsComponent;
+    }
 
     @GetMapping("/reverse/{text}")
     public String reverse(@PathVariable String text){
